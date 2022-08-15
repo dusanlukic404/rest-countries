@@ -2,12 +2,45 @@
 
 .card {
   margin-inline: rem(30);
-  padding: 2em 2em 3em 2em;
   overflow: hidden;
-
   cursor: pointer;
 
   @include breakpoint("medium") {
     margin-inline: 0;
+  }
+
+  &__body {
+    padding: 2em 2em 3em 2em;
+  }
+
+  &__img img {
+    height: 180px;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.skeleton {
+  opacity: 0.7;
+  animation: skeleton-text 1s linear infinite alternate;
+}
+
+.skeleton-text {
+  width: 100%;
+  height: rem(15);
+  margin-top: 0.25rem;
+  border-radius: 0.1rem;
+}
+
+.skeleton-text:last-of-type:not(:first-of-type) {
+  width: 80%;
+}
+
+@keyframes skeleton-text {
+  0% {
+    background-color: hsl(200, 20%, 70%);
+  }
+  100% {
+    background-color: hsl(200, 20%, 92%);
   }
 }
