@@ -151,7 +151,6 @@ body {
 
 .card {
   margin-inline: 1.875rem;
-  padding: 2em 2em 3em 2em;
   overflow: hidden;
   cursor: pointer;
 }
@@ -160,7 +159,39 @@ body {
     margin-inline: 0;
   }
 }
+.card__body {
+  padding: 2em 2em 3em 2em;
+}
+.card__img img {
+  height: 180px;
+  width: 100%;
+  object-fit: cover;
+}
 
+.skeleton {
+  opacity: 0.7;
+  animation: skeleton-text 1s linear infinite alternate;
+}
+
+.skeleton-text {
+  width: 100%;
+  height: 0.9375rem;
+  margin-top: 0.25rem;
+  border-radius: 0.1rem;
+}
+
+.skeleton-text:last-of-type:not(:first-of-type) {
+  width: 80%;
+}
+
+@keyframes skeleton-text {
+  0% {
+    background-color: hsl(200deg, 20%, 70%);
+  }
+  100% {
+    background-color: hsl(200deg, 20%, 92%);
+  }
+}
 .filter-wrapper {
   position: relative;
   max-width: 13.75rem;
@@ -173,6 +204,7 @@ body {
   pointer-events: none;
   opacity: 0;
   transform: translateY(-20px);
+  z-index: 1;
   transition: all 300ms ease-in-out;
 }
 .filter-wrapper .filter-list li + li {

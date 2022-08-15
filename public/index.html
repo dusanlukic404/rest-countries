@@ -60,41 +60,63 @@
               tabindex="0"
               aria-label="list of regions"
             >
-              <li>Africa</li>
-              <li>America</li>
-              <li>Asia</li>
-              <li>Europa</li>
-              <li>Oceania</li>
+              <li data-filter="africa">Africa</li>
+              <li data-filter="america">America</li>
+              <li data-filter="asia">Asia</li>
+              <li data-filter="europa">Europa</li>
+              <li data-filter="oceania">Oceania</li>
             </ul>
           </div>
         </div>
         <div class="home-section__main">
-          <ul class="card-list grid" role="list" aria-label="list of countries">
-            <li class="card">
-              <a href="#details.html">
-                <div class="card__img"></div>
-                <div class="card__body">
-                  <h2 class="country-name">Germany</h2>
-                  <ul role="list" aria-label="list of data about country">
-                    <li>
-                      <strong class="popuplation data">Population:</strong>
-                      <span class="value">81,770,900</span>
-                    </li>
-                    <li>
-                      <strong class="region data">Region:</strong>
-                      <span class="value">Europe</span>
-                    </li>
-                    <li>
-                      <strong class="capital data">Capital:</strong>
-                      <span class="value">Berlin</span>
-                    </li>
-                  </ul>
-                </div>
-              </a>
-            </li>
-          </ul>
+          <ul
+            class="card-list grid"
+            role="list"
+            aria-label="list of countries"
+          ></ul>
         </div>
       </section>
     </main>
+    <template id="card-template">
+      <li class="card">
+        <a href="#details.html">
+          <div class="card__img">
+            <img src="" alt="" />
+          </div>
+          <div class="card__body">
+            <h2 class="country-name"></h2>
+            <ul role="list" aria-label="list of data about country">
+              <li>
+                <strong class="population data">Population:</strong>
+                <span class="value" data-value="population"></span>
+              </li>
+              <li>
+                <strong class="region data">Region:</strong>
+                <span class="value" data-value="region"></span>
+              </li>
+              <li>
+                <strong class="capital data">Capital:</strong>
+                <span class="value" data-value="capital"></span>
+              </li>
+            </ul>
+          </div>
+        </a>
+      </li>
+    </template>
+    <template id="skeleton-template">
+      <li class="card">
+        <a href="#details.html">
+          <div class="card__img skeleton">
+            <img src="" alt="" />
+          </div>
+          <div class="card__body">
+            <h2 class="skeleton skeleton-text"></h2>
+            <div class="skeleton skeleton-text"></div>
+            <div class="skeleton skeleton-text"></div>
+            <div class="skeleton skeleton-text"></div>
+          </div>
+        </a>
+      </li>
+    </template>
   </body>
 </html>
