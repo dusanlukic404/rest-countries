@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./assets/favicon.png" type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script src="./js/script.js" defer></script>
+    <title>Where in the world? - REST Countries API</title>
+  </head>
+  <body data-theme="light">
+    <header class="header">
+      <div class="container flex-container">
+        <h1 class="logo">Where in the world?</h1>
+        <button class="btn btn-theme">
+          <svg class="icon btn-theme__icon">
+            <use xlink:href="./assets/icons/all-icons.svg#moon"></use>
+          </svg>
+          <span class="btn-theme__text">Dark Mode</span>
+        </button>
+      </div>
+    </header>
+    <main class="main">
+      <section class="home-section container">
+        <div class="home-section__header">
+          <div class="input">
+            <svg class="icon input__icon">
+              <use xlink:href="./assets/icons/all-icons.svg#search-icon"></use>
+            </svg>
+            <input
+              type="text"
+              name="searched-contry"
+              class="input__text"
+              placeholder="Search for a country..."
+            />
+          </div>
+          <div
+            class="filter-wrapper"
+            role="button"
+            aria-pressed="false"
+            tabindex="0"
+          >
+            <div class="filter">
+              <span class="filter__text">Filter by Region</span>
+              <svg class="icon filter__icon">
+                <use xlink:href="./assets/icons/all-icons.svg#arrow-down"></use>
+              </svg>
+            </div>
+            <ul
+              class="filter-list"
+              role="list"
+              tabindex="0"
+              aria-label="list of regions"
+            >
+              <li>Africa</li>
+              <li>America</li>
+              <li>Asia</li>
+              <li>Europa</li>
+              <li>Oceania</li>
+            </ul>
+          </div>
+        </div>
+        <div class="home-section__main">
+          <ul class="card-list grid" role="list" aria-label="list of countries">
+            <li class="card">
+              <a href="#details.html">
+                <div class="card__img"></div>
+                <div class="card__body">
+                  <h2 class="country-name">Germany</h2>
+                  <ul role="list" aria-label="list of data about country">
+                    <li>
+                      <strong class="popuplation data">Population:</strong>
+                      <span class="value">81,770,900</span>
+                    </li>
+                    <li>
+                      <strong class="region data">Region:</strong>
+                      <span class="value">Europe</span>
+                    </li>
+                    <li>
+                      <strong class="capital data">Capital:</strong>
+                      <span class="value">Berlin</span>
+                    </li>
+                  </ul>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

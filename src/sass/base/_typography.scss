@@ -1,0 +1,40 @@
+@use "../abstracts/" as *;
+
+body {
+  font-family: "Nunito Sans", sans-serif;
+  color: var(--clr-text);
+  font-size: clamp(rem(13), 1.5vw + 0.5rem, rem(16));
+}
+
+.logo {
+  font-size: clamp(rem(16), 2vw + 0.5rem, rem(22));
+  font-weight: 800;
+}
+
+.btn-theme__text {
+  font-weight: 600;
+  color: var(--clr-text);
+}
+
+.filter-wrapper {
+  font-weight: 600;
+}
+
+.card a {
+  text-decoration: none;
+  color: var(--clr-text);
+}
+
+.card {
+  font-size: clamp(rem(15), 2vw + 0.5rem, rem(15));
+}
+
+.country-name {
+  font-size: clamp(rem(15), 2vw + 0.5rem, rem(20));
+  font-weight: 800;
+  margin-bottom: rem(10);
+}
+
+.data {
+  font-weight: 600;
+}

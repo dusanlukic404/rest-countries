@@ -1,0 +1,305 @@
+/* Box sizing rules */
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  font: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role=list],
+ol[role=list] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  border: 0;
+  background-color: transparent;
+}
+
+/* Vissually hide elements for screen readers only */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* added line */
+  border: 0;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+*::before,
+*::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+:root {
+  --clr-dark-400: hsl(209, 23%, 22%);
+  --clr-dark-500: hsl(207, 26%, 17%);
+  --clr-dark-900: hsl(200, 15%, 8%);
+  --clr-light-300: hsl(0, 0%, 52%);
+  --clr-light-200: hsl(0, 0%, 98%);
+  --clr-light-100: hsl(0, 0%, 100%);
+  --clr-background-light: var(--clr-light-200);
+  --clr-background-dark: var(--clr-dark-500);
+  --clr-text-light: var(--clr-dark-900);
+  --clr-text-dark: var(--clr-light-100);
+  --clr-element-light: var(--clr-light-100);
+  --clr-element-dark: var(--clr-dark-400);
+  --clr-search-text-light: var(--clr-light-300);
+  --clr-search-text-dark: var(--clr-light-100);
+  --clr-box-shadow-light: hsl(0, 0%, 85%);
+  --clr-box-shadow-dark: hsl(205, 27%, 13%);
+}
+
+body[data-theme=light] {
+  --clr-background: var(--clr-background-light);
+  --clr-text: var(--clr-text-light);
+  --clr-element: var(--clr-element-light);
+  --clr-search-text: var(--clr-search-text-light);
+  --clr-box-shadow: var(--clr-box-shadow-light);
+}
+
+body[data-theme=dark] {
+  --clr-background: var(--clr-background-dark);
+  --clr-text: var(--clr-text-dark);
+  --clr-element: var(--clr-element-dark);
+  --clr-search-text: var(--clr-search-text-dark);
+  --clr-box-shadow: var(--clr-box-shadow-dark);
+}
+
+body {
+  font-family: "Nunito Sans", sans-serif;
+  color: var(--clr-text);
+  font-size: clamp(0.8125rem, 1.5vw + 0.5rem, 1rem);
+}
+
+.logo {
+  font-size: clamp(1rem, 2vw + 0.5rem, 1.375rem);
+  font-weight: 800;
+}
+
+.btn-theme__text {
+  font-weight: 600;
+  color: var(--clr-text);
+}
+
+.filter-wrapper {
+  font-weight: 600;
+}
+
+.card a {
+  text-decoration: none;
+  color: var(--clr-text);
+}
+
+.card {
+  font-size: clamp(0.9375rem, 2vw + 0.5rem, 0.9375rem);
+}
+
+.country-name {
+  font-size: clamp(0.9375rem, 2vw + 0.5rem, 1.25rem);
+  font-weight: 800;
+  margin-bottom: 0.625rem;
+}
+
+.data {
+  font-weight: 600;
+}
+
+.card {
+  margin-inline: 1.875rem;
+  padding: 2em 2em 3em 2em;
+  overflow: hidden;
+  cursor: pointer;
+}
+@media (min-width: 38.75em) {
+  .card {
+    margin-inline: 0;
+  }
+}
+
+.filter-wrapper {
+  position: relative;
+  max-width: 13.75rem;
+  cursor: pointer;
+}
+.filter-wrapper .filter-list {
+  position: absolute;
+  width: 100%;
+  top: 110%;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 300ms ease-in-out;
+}
+.filter-wrapper .filter-list li + li {
+  margin-top: 0.3125rem;
+}
+.filter-wrapper .filter-list--active {
+  pointer-events: auto;
+  opacity: 1;
+  transform: translateY(0);
+}
+.filter-wrapper .filter {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.input {
+  width: min(26.25rem, 100%);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  margin-bottom: clamp(1.25rem, 4vw + 1rem, 3.75rem);
+}
+@media (min-width: 38.75em) {
+  .input {
+    margin-bottom: 0;
+  }
+}
+.input__text {
+  background-color: transparent;
+  border: 0;
+  color: inherit;
+  width: 100%;
+  cursor: pointer;
+}
+.input__text:focus-visible {
+  outline: 2px solid var(--clr-text);
+}
+
+.btn-theme {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4375rem;
+  cursor: pointer;
+}
+.btn-theme:focus-visible {
+  outline: 2px solid var(--clr-text);
+}
+
+.header {
+  color: var(--clr-text);
+  padding-block: 1.25em;
+}
+
+body {
+  background-color: var(--clr-background);
+}
+
+.container {
+  width: min(81.25rem, 100% - 1.5625rem * 2);
+  margin-inline: auto;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15.625rem, 1fr));
+  gap: 2.5rem;
+}
+@media (min-width: 38.75em) {
+  .grid {
+    gap: 4.375rem;
+  }
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
+
+.btn-theme__icon,
+.filter__icon {
+  fill: var(--clr-text);
+}
+
+.input__icon {
+  fill: var(--clr-search-text);
+}
+
+.header,
+.input,
+.card,
+.filter-wrapper,
+.filter-list {
+  box-shadow: 0 2px 10px var(--clr-box-shadow);
+  background-color: var(--clr-element);
+}
+
+.input,
+.card,
+.filter-wrapper,
+.filter-list {
+  border-radius: 5px;
+}
+
+.input,
+.filter,
+.filter-list {
+  padding: 1em 1.5em;
+}
+
+.home-section {
+  margin-block: clamp(1.25rem, 4vw + 1rem, 3.75rem);
+}
+.home-section__header {
+  margin-bottom: clamp(1.25rem, 4vw + 1rem, 3.75rem);
+}
+@media (min-width: 38.75em) {
+  .home-section__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

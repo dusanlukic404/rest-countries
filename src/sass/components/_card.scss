@@ -1,0 +1,13 @@
+@use "../abstracts/" as *;
+
+.card {
+  margin-inline: rem(30);
+  padding: 2em 2em 3em 2em;
+  overflow: hidden;
+
+  cursor: pointer;
+
+  @include breakpoint("medium") {
+    margin-inline: 0;
+  }
+}

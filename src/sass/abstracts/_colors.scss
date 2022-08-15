@@ -1,0 +1,46 @@
+:root {
+  --clr-dark-400: hsl(209, 23%, 22%); // (Dark Mode Elements)
+  --clr-dark-500: hsl(207, 26%, 17%); // (Dark Mode Background)
+  --clr-dark-900: hsl(200, 15%, 8%); // (Light Mode Text)
+
+  --clr-light-300: hsl(0, 0%, 52%); // (Light Mode Input)
+  --clr-light-200: hsl(0, 0%, 98%); // (Light Mode Background)
+  --clr-light-100: hsl(0, 0%, 100%); // (Dark Mode Text & Light Mode Elements)
+  // Dark/light
+
+  // Backgrounds
+  --clr-background-light: var(--clr-light-200);
+  --clr-background-dark: var(--clr-dark-500);
+
+  // Text
+  --clr-text-light: var(--clr-dark-900);
+  --clr-text-dark: var(--clr-light-100);
+
+  // Elements
+  --clr-element-light: var(--clr-light-100);
+  --clr-element-dark: var(--clr-dark-400);
+
+  // Search text and icon
+  --clr-search-text-light: var(--clr-light-300);
+  --clr-search-text-dark: var(--clr-light-100);
+
+  // Box-shadows
+  --clr-box-shadow-light: hsl(0, 0%, 85%);
+  --clr-box-shadow-dark: hsl(205, 27%, 13%);
+}
+
+body[data-theme="light"] {
+  --clr-background: var(--clr-background-light);
+  --clr-text: var(--clr-text-light);
+  --clr-element: var(--clr-element-light);
+  --clr-search-text: var(--clr-search-text-light);
+  --clr-box-shadow: var(--clr-box-shadow-light);
+}
+
+body[data-theme="dark"] {
+  --clr-background: var(--clr-background-dark);
+  --clr-text: var(--clr-text-dark);
+  --clr-element: var(--clr-element-dark);
+  --clr-search-text: var(--clr-search-text-dark);
+  --clr-box-shadow: var(--clr-box-shadow-dark);
+}

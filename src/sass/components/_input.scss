@@ -1,0 +1,26 @@
+@use "../abstracts/" as *;
+
+.input {
+  width: min(rem(420), 100%);
+  display: inline-flex;
+  align-items: center;
+  gap: rem(10);
+  margin-bottom: clamp(rem(20), 4vw + 1rem, rem(60));
+
+  @include breakpoint("medium") {
+    margin-bottom: 0;
+  }
+
+  &__text {
+    background-color: transparent;
+    border: 0;
+    color: inherit;
+    width: 100%;
+
+    cursor: pointer;
+
+    &:focus-visible {
+      outline: 2px solid var(--clr-text);
+    }
+  }
+}

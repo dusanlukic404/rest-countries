@@ -1,0 +1,6 @@
+@use "../abstracts/" as *;
+
+.header {
+  color: var(--clr-text);
+  padding-block: 1.25em;
+}

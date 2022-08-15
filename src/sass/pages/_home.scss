@@ -1,0 +1,15 @@
+@use "../abstracts/" as *;
+
+.home-section {
+  margin-block: clamp(rem(20), 4vw + 1rem, rem(60));
+
+  &__header {
+    margin-bottom: clamp(rem(20), 4vw + 1rem, rem(60));
+
+    @include breakpoint("medium") {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+}
