@@ -34,12 +34,14 @@ for (let i = 0; i < 8; i++) {
 }
 
 // Displaying cards
+let allCountries = [],
+  selectedRegionCountries = [];
 
 getData("https://restcountries.com/v3.1/all").then((countries) => {
   cardContainer.innerHTML = "";
-  countries.forEach((country) => {
-    const card = cardTemplate.content.cloneNode(true);
-    card.querySelector(" img").src = country.flags.svg;
+  allCountries = countries.map((country) => {
+    const card = cardTemplate.content.cloneNode(true).children[0];
+    card.querySelector("img").src = country.flags.svg;
     card
       .querySelector("img")
       .setAttribute("alt", `Flag of ${country.name.common}`);
@@ -50,23 +52,68 @@ getData("https://restcountries.com/v3.1/all").then((countries) => {
     card.querySelector(`[data-value="capital"]`).textContent = country.capital;
 
     cardContainer.append(card);
+    return { name: country.name.common, region: country.region, element: card };
   });
 
-  gsap.from(".card", {
-    opacity: 0,
-    duration: 1,
-    stagger: 0.2,
-    ease: "back.easeOut",
-  });
+  // const tl = gsap.timeline({ duration: 1 });
+  // tl.from(".card", {
+  //   opacity: 0,
+  //   stagger: 0.25,
+  //   ease: "back.easeOut",
+  // });
+
+  // Displaying detail page
+
+  // cardContainer.addEventListener("click", function (e) {
+  //   e.preventDefault();
+  //   if (!e.target.closest(".card")) return;
+
+  //   // const cards = document.querySelectorAll(".card");
+  //   const selectedCard = e.target.closest(".card");
+  //   const selectedCountry =
+  //     selectedCard.querySelector(".country-name").textContent;
+  //   const [detailsAboutCountry] = countries.filter(
+  //     (country) => country.name.common === selectedCountry
+  //   );
+  // });
 });
 
 function formatPopulation(num) {
   return new Intl.NumberFormat().format(num);
 }
 
+// Search input
+
+const searchInput = document.querySelector(".input__text");
+
+function searchInputFilter(countryArr, selectedRegion) {
+  const value = searchInput.value.toLowerCase();
+  countryArr.forEach((country) => {
+    const isVisible = country.name.toLowerCase().includes(value);
+    if (!selectedRegion) {
+      country.element.classList.toggle("hide", !isVisible);
+    } else {
+      if (isVisible && country.region.toLowerCase() === selectedRegion) {
+        country.element.style.display = "block";
+      } else {
+        country.element.style.display = "none";
+      }
+    }
+  });
+}
+
+searchInput.addEventListener("input", function () {
+  searchInputFilter(allCountries);
+});
+
+window.addEventListener("load", function () {
+  searchInput.value = "";
+});
+
 // Filtering
 
 function filterCards(selectedRegion) {
+  searchInput.value = "";
   const cards = document.querySelectorAll(".card");
 
   cards.forEach((card) => {
@@ -84,6 +131,10 @@ filterContainer.addEventListener("click", function (e) {
 
   let selectedRegion = e.target.dataset.filter;
   filterCards(selectedRegion);
+
+  searchInput.addEventListener("input", function () {
+    searchInputFilter(allCountries, selectedRegion);
+  });
 });
 
 // Filtering through keyboard
@@ -95,6 +146,9 @@ filterListItems.forEach((item) => {
     if (e.keyCode === 13) {
       let selectedRegion = e.target.dataset.filter;
       filterCards(selectedRegion);
+      searchInput.addEventListener("input", function () {
+        searchInputFilter(allCountries, selectedRegion);
+      });
     }
   });
 });

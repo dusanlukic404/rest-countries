@@ -4,6 +4,7 @@
   margin-inline: rem(30);
   overflow: hidden;
   cursor: pointer;
+  max-width: 280px;
 
   transition: all 300ms ease-in-out;
 
@@ -28,6 +29,10 @@
   &:is(:hover, :focus-within) {
     transform: scale(1.05);
   }
+}
+
+.hide {
+  display: none;
 }
 
 .skeleton {

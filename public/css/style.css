@@ -153,6 +153,7 @@ body {
   margin-inline: 1.875rem;
   overflow: hidden;
   cursor: pointer;
+  max-width: 280px;
   transition: all 300ms ease-in-out;
 }
 @media (min-width: 38.75em) {
@@ -173,6 +174,10 @@ body {
 }
 .card:is(:hover, :focus-within) {
   transform: scale(1.05);
+}
+
+.hide {
+  display: none;
 }
 
 .skeleton {
