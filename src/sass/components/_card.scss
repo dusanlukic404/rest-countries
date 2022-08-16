@@ -5,6 +5,8 @@
   overflow: hidden;
   cursor: pointer;
 
+  transition: all 300ms ease-in-out;
+
   @include breakpoint("medium") {
     margin-inline: 0;
   }
@@ -17,6 +19,10 @@
     height: 180px;
     width: 100%;
     object-fit: cover;
+  }
+
+  &:is(:hover, :focus-visible) {
+    transform: scale(1.05);
   }
 }
 

@@ -1,5 +1,7 @@
 "use strict";
 
+const body = document.querySelector("body");
+
 // Filter button
 
 const filterBtn = document.querySelector(".filter");
@@ -12,10 +14,14 @@ filterBtn.addEventListener("click", function () {
 // Getting data from API
 
 const getData = async function (url) {
-  const response = await fetch(url);
-  const data = response.json();
+  try {
+    const response = await fetch(url);
+    const data = response.json();
 
-  return data;
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 // Skeleton animation on loading data
@@ -50,7 +56,6 @@ getData("https://restcountries.com/v3.1/all").then((countries) => {
 
   gsap.from(".card", {
     opacity: 0,
-    y: 20,
     duration: 1,
     stagger: 0.2,
     ease: "back.easeOut",
@@ -60,3 +65,67 @@ getData("https://restcountries.com/v3.1/all").then((countries) => {
 function formatPopulation(num) {
   return new Intl.NumberFormat().format(num);
 }
+
+// Filtering
+
+const filterContainer = document.querySelector(".filter-list");
+
+filterContainer.addEventListener("click", function (e) {
+  if (!e.target.dataset.filter) return;
+
+  let selectedRegion = e.target.dataset.filter;
+  const cards = document.querySelectorAll(".card");
+
+  cards.forEach((card) => {
+    card.querySelector("[data-value='region']").textContent.toLowerCase() ===
+    selectedRegion
+      ? (card.style.display = "block")
+      : (card.style.display = "none");
+  });
+
+  this.classList.remove("filter-list--active");
+});
+
+// Toggle theme
+
+const themeBtn = document.querySelector(".btn-theme");
+const moonSvg = document.querySelector(".btn-theme__icon");
+let themeLocalStorage = localStorage.getItem("theme");
+
+function setDarkTheme() {
+  body.dataset.theme = "dark";
+  moonSvg.firstElementChild.setAttribute(
+    "xlink:href",
+    "./assets/icons/all-icons.svg#moon-filled"
+  );
+  localStorage.setItem("theme", "dark");
+}
+
+function setLightTheme() {
+  body.dataset.theme = "light";
+  moonSvg.firstElementChild.setAttribute(
+    "xlink:href",
+    "./assets/icons/all-icons.svg#moon"
+  );
+  localStorage.setItem("theme", "light");
+}
+
+function checkTheme() {
+  const isDarkEnabled = window.matchMedia(
+    "(prefers-color-scheme: dark)"
+  ).matches;
+
+  isDarkEnabled ? setDarkTheme() : setLightTheme();
+}
+
+if (!themeLocalStorage) {
+  checkTheme();
+} else {
+  themeLocalStorage === "light" ? setLightTheme() : setDarkTheme();
+}
+
+themeBtn.addEventListener("click", function () {
+  let currentTheme = body.dataset.theme;
+
+  currentTheme === "light" ? setDarkTheme() : setLightTheme();
+});
