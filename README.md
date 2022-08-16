@@ -44,6 +44,7 @@ Users should be able to:
 - SCSS
 - Mobile-first workflow
 - JavaScript (ES6)
+- GSAP
 
 ## Author
 

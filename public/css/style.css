@@ -160,6 +160,9 @@ body {
     margin-inline: 0;
   }
 }
+.card a {
+  outline: none;
+}
 .card__body {
   padding: 2em 2em 3em 2em;
 }
@@ -168,7 +171,7 @@ body {
   width: 100%;
   object-fit: cover;
 }
-.card:is(:hover, :focus-visible) {
+.card:is(:hover, :focus-within) {
   transform: scale(1.05);
 }
 
@@ -199,6 +202,7 @@ body {
 .filter-wrapper {
   position: relative;
   max-width: 13.75rem;
+  color: var(--clr-text);
   cursor: pointer;
 }
 .filter-wrapper .filter-list {
@@ -209,21 +213,34 @@ body {
   opacity: 0;
   transform: translateY(-20px);
   z-index: 1;
+  text-align: left;
   transition: all 300ms ease-in-out;
 }
 .filter-wrapper .filter-list li + li {
   margin-top: 0.3125rem;
+}
+.filter-wrapper .filter-list li:focus-visible {
+  outline: 2px solid var(--clr-text);
+  outline-offset: 4px;
 }
 .filter-wrapper .filter-list--active {
   pointer-events: auto;
   opacity: 1;
   transform: translateY(0);
 }
+.filter-wrapper .filter-list:focus-visible {
+  outline: 2px solid var(--clr-text);
+  outline-offset: 4px;
+}
 .filter-wrapper .filter {
   width: 100%;
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
+}
+.filter-wrapper:focus-visible {
+  outline: 2px solid var(--clr-text);
+  outline-offset: 4px;
 }
 
 .input {
@@ -246,7 +263,11 @@ body {
   cursor: pointer;
 }
 .input__text:focus-visible {
+  outline: none;
+}
+.input:focus-within {
   outline: 2px solid var(--clr-text);
+  outline-offset: 4px;
 }
 
 .btn-theme {

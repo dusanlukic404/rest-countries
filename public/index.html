@@ -42,12 +42,7 @@
               placeholder="Search for a country..."
             />
           </div>
-          <div
-            class="filter-wrapper"
-            role="button"
-            aria-pressed="false"
-            tabindex="0"
-          >
+          <button class="filter-wrapper" aria-controls="filter-list">
             <div class="filter">
               <span class="filter__text">Filter by Region</span>
               <svg class="icon filter__icon">
@@ -56,17 +51,18 @@
             </div>
             <ul
               class="filter-list"
+              id="filter-list"
               role="list"
               tabindex="0"
               aria-label="list of regions"
             >
-              <li data-filter="africa">Africa</li>
-              <li data-filter="americas">Americas</li>
-              <li data-filter="asia">Asia</li>
-              <li data-filter="europe">Europe</li>
-              <li data-filter="oceania">Oceania</li>
+              <li tabindex="0" data-filter="africa">Africa</li>
+              <li tabindex="0" data-filter="americas">Americas</li>
+              <li tabindex="0" data-filter="asia">Asia</li>
+              <li tabindex="0" data-filter="europe">Europe</li>
+              <li tabindex="0" data-filter="oceania">Oceania</li>
             </ul>
-          </div>
+          </button>
         </div>
         <div class="home-section__main">
           <ul

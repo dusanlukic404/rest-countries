@@ -1,10 +1,8 @@
 "use strict";
 
-const body = document.querySelector("body");
-
 // Filter button
 
-const filterBtn = document.querySelector(".filter");
+const filterBtn = document.querySelector(".filter-wrapper");
 const filterList = document.querySelector(".filter-list");
 
 filterBtn.addEventListener("click", function () {
@@ -68,12 +66,7 @@ function formatPopulation(num) {
 
 // Filtering
 
-const filterContainer = document.querySelector(".filter-list");
-
-filterContainer.addEventListener("click", function (e) {
-  if (!e.target.dataset.filter) return;
-
-  let selectedRegion = e.target.dataset.filter;
+function filterCards(selectedRegion) {
   const cards = document.querySelectorAll(".card");
 
   cards.forEach((card) => {
@@ -82,12 +75,33 @@ filterContainer.addEventListener("click", function (e) {
       ? (card.style.display = "block")
       : (card.style.display = "none");
   });
+}
 
-  this.classList.remove("filter-list--active");
+const filterContainer = document.querySelector(".filter-list");
+
+filterContainer.addEventListener("click", function (e) {
+  if (!e.target.dataset.filter) return;
+
+  let selectedRegion = e.target.dataset.filter;
+  filterCards(selectedRegion);
+});
+
+// Filtering through keyboard
+
+const filterListItems = document.querySelectorAll(".filter-list li");
+
+filterListItems.forEach((item) => {
+  item.addEventListener("keydown", function (e) {
+    if (e.keyCode === 13) {
+      let selectedRegion = e.target.dataset.filter;
+      filterCards(selectedRegion);
+    }
+  });
 });
 
 // Toggle theme
 
+const body = document.querySelector("body");
 const themeBtn = document.querySelector(".btn-theme");
 const moonSvg = document.querySelector(".btn-theme__icon");
 let themeLocalStorage = localStorage.getItem("theme");
