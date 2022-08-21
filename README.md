@@ -32,7 +32,6 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
 - Live Site URL: [See Live](https://rest-country-api-dusanlukic.netlify.app/)
 
 ### Built with
