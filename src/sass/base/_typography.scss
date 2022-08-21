@@ -25,14 +25,30 @@ body {
   color: var(--clr-text);
 }
 
-.card {
-  font-size: clamp(rem(15), 2vw + 0.5rem, rem(15));
+.card,
+.border-wrapper li {
+  font-size: rem(15);
 }
 
 .country-name {
-  font-size: clamp(rem(15), 2vw + 0.5rem, rem(20));
+  font-size: clamp(rem(16), 2vw + 0.5rem, rem(24));
   font-weight: 800;
   margin-bottom: rem(10);
+}
+
+.detail-section .country-name,
+.border-wrapper {
+  margin-block: rem(40) rem(20);
+
+  @include breakpoint("medium") {
+    margin-block: 0 rem(30);
+  }
+}
+
+.border-wrapper {
+  @include breakpoint("medium") {
+    margin-block: rem(40) rem(30);
+  }
 }
 
 .data {

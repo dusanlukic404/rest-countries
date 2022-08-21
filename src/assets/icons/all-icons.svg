@@ -1,4 +1,7 @@
 <svg width="0" height="0" class="hidden">
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" id="arrow-back">
+    <path d="M24 40 8 24 24 8l2.1 2.1-12.4 12.4H40v3H13.7l12.4 12.4Z"></path>
+  </symbol>
   <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" id="arrow-down">
     <path d="m24 30.8-12-12 2.15-2.15L24 26.5l9.85-9.85L36 18.8Z"></path>
   </symbol>

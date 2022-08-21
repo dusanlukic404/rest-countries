@@ -1,0 +1,64 @@
+@use "../abstracts/" as *;
+
+.detail-list {
+  li + li {
+    margin-top: rem(10);
+  }
+
+  &--other {
+    margin-top: rem(50);
+
+    @include breakpoint("medium") {
+      margin-top: rem(10);
+    }
+
+    @include breakpoint("large") {
+      margin-top: 0;
+    }
+  }
+}
+
+.detail-lists {
+  @include breakpoint("large") {
+    display: flex;
+    gap: rem(50);
+  }
+}
+
+.detail-section__main {
+  @include breakpoint("medium") {
+    display: flex;
+    align-items: center;
+    gap: rem(100);
+
+    & > * {
+      width: 100%;
+    }
+  }
+}
+
+.border-list {
+  display: flex;
+  align-items: center;
+  gap: rem(15);
+  flex-wrap: wrap;
+
+  li {
+    padding: 0.5em 1.4em;
+    box-shadow: 0 2px 10px var(--clr-box-shadow);
+
+    margin-top: rem(10);
+
+    @include breakpoint("large") {
+      margin-top: 0;
+    }
+  }
+}
+
+.border-wrapper {
+  @include breakpoint("large") {
+    display: flex;
+    align-items: center;
+    gap: rem(10);
+  }
+}

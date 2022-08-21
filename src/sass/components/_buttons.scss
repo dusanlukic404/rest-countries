@@ -1,6 +1,7 @@
 @use "../abstracts/" as *;
 
-.btn-theme {
+.btn-theme,
+.btn-back {
   display: inline-flex;
   align-items: center;
   gap: rem(7);
@@ -10,4 +11,9 @@
   &:focus-visible {
     outline: 2px solid var(--clr-text);
   }
+}
+
+.btn-back {
+  padding: 0.7em 1.7em;
+  margin-bottom: clamp(rem(20), 4vw + 1rem, rem(60));
 }

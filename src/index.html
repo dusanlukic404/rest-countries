@@ -29,7 +29,7 @@
       </div>
     </header>
     <main class="main">
-      <section class="home-section container">
+      <section class="home-section container" aria-label="All countries">
         <div class="home-section__header">
           <div class="input">
             <svg class="icon input__icon">
@@ -72,6 +72,76 @@
           ></ul>
         </div>
       </section>
+
+      <section
+        class="detail-section container"
+        aria-label="Details about selected country"
+      >
+        <a href="#" class="btn btn-back"
+          ><svg class="icon btn-theme__icon">
+            <use xlink:href="./assets/icons/all-icons.svg#arrow-back"></use>
+          </svg>
+          <span>Back</span></a
+        >
+        <div class="detail-section__main">
+          <div class="detail-img">
+            <img src="" alt="" class="country-flag" />
+          </div>
+          <div class="detail-text">
+            <h2 class="country-name"></h2>
+            <div class="detail-lists">
+              <ul role="list" class="detail-list" aria-label="list of details">
+                <li>
+                  <strong class="data">Native Name:</strong>
+                  <span class="value" data-value="native-name"></span>
+                </li>
+                <li>
+                  <strong class="data">Population:</strong>
+                  <span class="value" data-value="population"></span>
+                </li>
+                <li>
+                  <strong class="data">Region:</strong>
+                  <span class="value" data-value="region"></span>
+                </li>
+                <li>
+                  <strong class="data">Sub Region:</strong>
+                  <span class="value" data-value="subregion"></span>
+                </li>
+                <li>
+                  <strong class="data">Capital:</strong>
+                  <span class="value" data-value="capital"></span>
+                </li>
+              </ul>
+              <ul
+                role="list"
+                class="detail-list detail-list--other"
+                aria-label="other details"
+              >
+                <li>
+                  <strong class="data">Top Level Domain:</strong>
+                  <span class="value" data-value="tld"></span>
+                </li>
+                <li>
+                  <strong class="data">Currencies:</strong>
+                  <span class="value" data-value="currencies"></span>
+                </li>
+                <li>
+                  <strong class="data">Languages:</strong>
+                  <span class="value" data-value="languages"></span>
+                </li>
+              </ul>
+            </div>
+            <div class="border-wrapper">
+              <h3 class="border-countries data">Border Countries:</h3>
+              <ul
+                role="list"
+                class="border-list"
+                aria-label="list of border countries"
+              ></ul>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
     <template id="card-template">
       <li class="card">
@@ -83,15 +153,15 @@
             <h2 class="country-name"></h2>
             <ul role="list" aria-label="list of data about country">
               <li>
-                <strong class="population data">Population:</strong>
+                <strong class="data">Population:</strong>
                 <span class="value" data-value="population"></span>
               </li>
               <li>
-                <strong class="region data">Region:</strong>
+                <strong class="data">Region:</strong>
                 <span class="value" data-value="region"></span>
               </li>
               <li>
-                <strong class="capital data">Capital:</strong>
+                <strong class="data">Capital:</strong>
                 <span class="value" data-value="capital"></span>
               </li>
             </ul>

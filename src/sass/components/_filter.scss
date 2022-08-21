@@ -43,10 +43,14 @@
   }
 
   .filter {
-    width: 100%;
+    width: rem(203);
     display: inline-flex;
     align-items: center;
     justify-content: space-between;
+
+    &__text {
+      padding-right: rem(20);
+    }
   }
 
   &:focus-visible {
